@@ -14,7 +14,7 @@ const searchPhone = () => {
         // console.log(url);
         fetch(url)
             .then(res => res.json())
-            .then(data => DisplayPhoneResult(data.data))
+            .then(data => DisplayPhoneResult(data.data.slice(0, 20)))
     }
 
 }
@@ -25,7 +25,7 @@ const DisplayPhoneResult = (phones) => {
     searchResult.innerHTML = '';
     if (phones.length == 0) {
         error.innerText = 'Sorry, No result found for your result !!';
-    }
+    };
     phones.forEach(phone => {
         const div = document.createElement('div');
         div.classList.add('col');
