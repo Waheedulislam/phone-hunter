@@ -21,7 +21,11 @@ const searchPhone = () => {
 
 const DisplayPhoneResult = (phones) => {
     const searchResult = document.getElementById('search-result');
+    const error = document.getElementById('error');
     searchResult.innerHTML = '';
+    if (phones.length == 0) {
+        error.innerText = 'Sorry, No result found for your result !!';
+    }
     phones.forEach(phone => {
         const div = document.createElement('div');
         div.classList.add('col');
